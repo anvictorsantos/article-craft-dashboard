@@ -53,7 +53,7 @@ To run the Monster Slayer game, follow these steps:
   # OR
   yarn serve
   ```
-- Open your browser and visit http://localhost:8080 to see the application in action.
+- Open your browser and visit http://localhost:5173 to see the application in action.
 
 ## Technologies Used
 - **Frontend**:
