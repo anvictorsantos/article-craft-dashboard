@@ -17,10 +17,47 @@ export default {
 };
 </script> -->
 
-<!-- Compostion API -->
-<script>
+<!-- Compostion API (old pattern) -->
+<!-- <script>
+import { ref } from 'vue';
+
 export default {
-    setup() {}
+    setup() {
+        // property
+        const counter = ref(0);
+
+        // computed property
+        const increaseCounter = () => {
+            counter.value++;
+        };
+
+        const decreaseCounter = () => {
+            counter.value--;
+        };
+
+        // method property
+        return {
+            counter,
+            increaseCounter,
+            decreaseCounter
+        };
+    }
+};
+</script> -->
+
+<script setup>
+import { ref } from 'vue';
+
+// property
+const counter = ref(0);
+
+// computed property
+const increaseCounter = () => {
+    counter.value++;
+};
+
+const decreaseCounter = () => {
+    counter.value--;
 };
 </script>
 
