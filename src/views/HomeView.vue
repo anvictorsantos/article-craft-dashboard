@@ -46,36 +46,43 @@ export default {
 </script> -->
 
 <script setup>
-import { ref } from 'vue';
+// import { ref } from 'vue';
 
-// property
-const counter = ref(0);
-// two-way data biding
-const counterTitle = ref('My Counter');
+// // property
+// const counter = ref(0);
+// // two-way data biding
+// const counterTitle = ref('My Counter');
+
+import { reactive } from 'vue';
+
+const counterData = reactive({
+    count: 0,
+    title: 'My counter'
+});
 
 // computed property
 const increaseCounter = () => {
-    counter.value++;
+    counterData.count++;
 };
 
 const decreaseCounter = () => {
-    counter.value--;
+    counterData.count--;
 };
 </script>
 
 <template>
     <div class="home">
-        <h1 class="text-3xl font-bold underline">{{ counterTitle }}:</h1>
+        <h1 class="text-3xl font-bold underline">{{ counterData.title }}:</h1>
         <div>
             <button @click="decreaseCounter">-</button>
-            <span>{{ counter }}</span>
+            <span>{{ counterData.count }}</span>
             <button @click="increaseCounter">+</button>
         </div>
 
         <div class="edit">
             <h4>Edit counter title:</h4>
             <input
-                v-model="counterTitle"
+                v-model="counterData.title"
                 type="text"
             />
         </div>
