@@ -50,6 +50,8 @@ import { ref } from 'vue';
 
 // property
 const counter = ref(0);
+// two-way data biding
+const counterTitle = ref('My Counter');
 
 // computed property
 const increaseCounter = () => {
@@ -63,11 +65,19 @@ const decreaseCounter = () => {
 
 <template>
     <div class="home">
-        <h1 class="text-3xl font-bold underline">TESTE</h1>
+        <h1 class="text-3xl font-bold underline">{{ counterTitle }}:</h1>
         <div>
             <button @click="decreaseCounter">-</button>
             <span>{{ counter }}</span>
             <button @click="increaseCounter">+</button>
+        </div>
+
+        <div class="edit">
+            <h4>Edit counter title:</h4>
+            <input
+                v-model="counterTitle"
+                type="text"
+            />
         </div>
     </div>
 </template>
