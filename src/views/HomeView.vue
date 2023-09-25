@@ -13,6 +13,11 @@ export default {
         decreaseCounter() {
             this.counter--;
         }
+    },
+    computed: {
+        myComputedProperty() {
+            return 'my result'
+        }
     }
 };
 </script> -->
@@ -53,18 +58,26 @@ export default {
 // // two-way data biding
 // const counterTitle = ref('My Counter');
 
-import { reactive } from 'vue';
+import { computed, reactive } from 'vue';
 
 const counterData = reactive({
     count: 0,
     title: 'My counter'
 });
 
-// computed property
-const increaseCounter = () => {
-    counterData.count++;
+const oddOrEven = computed(() => {
+    if (counterData.count % 2 === 0) {
+        return 'even';
+    }
+    return 'odd';
+});
+
+// methods: often defined to display an output
+const increaseCounter = (amount) => {
+    counterData.count += amount;
 };
 
+// computed property: resulting in dynamic values based on data properties
 const decreaseCounter = () => {
     counterData.count--;
 };
@@ -76,8 +89,10 @@ const decreaseCounter = () => {
         <div>
             <button @click="decreaseCounter">-</button>
             <span>{{ counterData.count }}</span>
-            <button @click="increaseCounter">+</button>
+            <button @click="increaseCounter(2)">+</button>
         </div>
+
+        <p>This counter is {{ oddOrEven }}</p>
 
         <div class="edit">
             <h4>Edit counter title:</h4>
