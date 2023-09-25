@@ -18,6 +18,11 @@ export default {
         myComputedProperty() {
             return 'my result'
         }
+    },
+    watch: {
+        count(newCount, oldCount) {
+            if (newCount == 20) alert ('count')
+        }
     }
 };
 </script> -->
@@ -58,7 +63,7 @@ export default {
 // // two-way data biding
 // const counterTitle = ref('My Counter');
 
-import { computed, reactive } from 'vue';
+import { computed, reactive, watch } from 'vue';
 
 const counterData = reactive({
     count: 0,
@@ -71,6 +76,15 @@ const oddOrEven = computed(() => {
     }
     return 'odd';
 });
+
+watch(
+    () => counterData.count,
+    (newCount) => {
+        if (newCount === 20) {
+            alert('Way to go! You made it to 20');
+        }
+    }
+);
 
 // methods: often defined to display an output
 const increaseCounter = (amount) => {
