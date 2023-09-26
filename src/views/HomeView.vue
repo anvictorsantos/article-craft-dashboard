@@ -23,6 +23,12 @@ export default {
         count(newCount, oldCount) {
             if (newCount == 20) alert ('count')
         }
+    },
+    mounted() {
+        console.log('mounted')
+    },
+    unmounted() {
+        console.log('unmounted')
     }
 };
 </script> -->
@@ -56,6 +62,8 @@ export default {
 </script> -->
 
 <script setup>
+// imports
+
 // import { ref } from 'vue';
 
 // // property
@@ -63,7 +71,27 @@ export default {
 // // two-way data biding
 // const counterTitle = ref('My Counter');
 
-import { computed, reactive, watch } from 'vue';
+import {
+    computed,
+    onActivated,
+    onBeforeMount,
+    onBeforeUnmount,
+    onBeforeUpdate,
+    onDeactivated,
+    onMounted,
+    onUnmounted,
+    onUpdated,
+    reactive,
+    watch
+} from 'vue';
+
+// app title
+
+onMounted(() => {
+    console.log('Do stuff related to App Title');
+});
+
+// counter
 
 const counterData = reactive({
     count: 0,
@@ -95,6 +123,38 @@ const increaseCounter = (amount) => {
 const decreaseCounter = () => {
     counterData.count--;
 };
+
+// onBeforeMount(() => {
+//     console.log('onBeforeMount');
+// });
+
+// onBeforeUnmount(() => {
+//     console.log('onBeforeUnmount');
+// });
+
+// onUnmounted(() => {
+//     console.log('onUnmounted');
+// });
+
+// onActivated(() => {
+//     console.log('onActivated');
+// });
+
+// onDeactivated(() => {
+//     console.log('onDeactivated');
+// });
+
+// onBeforeUpdate(() => {
+//     console.log('onBeforeUpdate');
+// });
+
+// onUpdated(() => {
+//     console.log('onUpdated');
+// });
+
+onMounted(() => {
+    console.log('Do stuff related to Counter');
+});
 </script>
 
 <template>
