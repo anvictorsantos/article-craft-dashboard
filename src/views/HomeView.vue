@@ -1,5 +1,7 @@
 <template>
     <div class="home">
+        <h2 ref="appTitleRef">{{ appTitleRef }}</h2>
+
         <h1 class="text-3xl font-bold underline">{{ counterData.title }}:</h1>
         <div>
             <button @click="decreaseCounter">-</button>
@@ -23,13 +25,15 @@
 <script setup>
 // imports
 
-import { computed, onMounted, reactive, watch } from 'vue';
+import { computed, nextTick, onMounted, reactive, ref, watch } from 'vue';
 import { vAutofocus } from '@/directives/vAutofocus';
 
 // app title
 
+const appTitleRef = ref(null);
+
 onMounted(() => {
-    console.log('Do stuff related to App Title');
+    console.log(`The app title is ${appTitleRef.value.offsetWidth} px wide`);
 });
 
 // counter
@@ -58,6 +62,9 @@ watch(
 // methods: often defined to display an output
 const increaseCounter = (amount) => {
     counterData.count += amount;
+    nextTick(() => {
+        console.log('do something when counter has updated in the dom');
+    });
 };
 
 // computed property: resulting in dynamic values based on data properties
