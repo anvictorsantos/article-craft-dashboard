@@ -5,6 +5,7 @@
         <ModalComponent
             v-if="showModal"
             title="This is a modal"
+            @hide-modal="showModal = false"
         >
             <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
