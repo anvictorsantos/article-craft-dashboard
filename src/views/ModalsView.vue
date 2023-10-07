@@ -1,11 +1,20 @@
 <template>
     <div class="modals">
         <h1>Modals</h1>
+        <div>
+            <label>
+                Show dark modals?
+                <input
+                    v-model="showDarkModals"
+                    type="checkbox"
+                />
+            </label>
+        </div>
         <button @click="showModal = true">Show Modal</button>
-        <ModalComponent
+        <component
+            :is="Modal"
             v-if="showModal"
             title="This is a modal"
-            @hide-modal="showModal = false"
         >
             <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -13,15 +22,16 @@
                 fugit cupiditate, molestiae ut earum reprehenderit a. Natus
                 pariatur necessitatibus cumque iusto temporibus ullam ipsam.
             </p>
-        </ModalComponent>
+        </component>
     </div>
 </template>
 
 <script setup>
 // imports
 import { ref } from 'vue';
-import ModalComponent from '@/components/ModalComponent.vue';
+import Modal from '@/components/Modal.vue';
 
 // modals
+const showDarkModals = ref(false);
 const showModal = ref(false);
 </script>

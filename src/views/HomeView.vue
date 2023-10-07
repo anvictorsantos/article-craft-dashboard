@@ -76,3 +76,18 @@ onMounted(() => {
     console.log('Do stuff related to Counter');
 });
 </script>
+
+<style>
+.home {
+    text-align: center;
+    padding: 20px;
+}
+.btn,
+.counter {
+    font-size: 40px;
+    margin: 10px;
+}
+.edit {
+    margin-top: 60px;
+}
+</style>

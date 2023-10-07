@@ -38,3 +38,9 @@ const posts = ref([
     }
 ]);
 </script>
+
+<style scoped>
+ul {
+    margin-bottom: 30px;
+}
+</style>
