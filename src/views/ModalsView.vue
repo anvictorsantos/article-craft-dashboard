@@ -13,8 +13,8 @@
         <button @click="showModal = true">Show Modal</button>
         <component
             :is="showDarkModals ? ModalDark : Modal"
-            v-if="showModal"
-            title="This is a modal"
+            v-model="showModal"
+            title="This is a modal (via prop)"
         >
             <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.

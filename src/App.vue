@@ -1,4 +1,5 @@
 <template>
+    <div class="user-data">{{ userData.name }} @{{ userData.username }}</div>
     <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/modals">Modals</RouterLink>
@@ -9,7 +10,16 @@
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from 'vue-router';
+// imports
+import { reactive, provide } from 'vue';
+
+// user data
+const userData = reactive({
+    name: 'Danny',
+    username: 'dannyconnell'
+});
+
+provide('userData', userData);
 </script>
 
 <style>
