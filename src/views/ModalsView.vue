@@ -12,7 +12,7 @@
         </div>
         <button @click="showModal = true">Show Modal</button>
         <component
-            :is="Modal"
+            :is="showDarkModals ? ModalDark : Modal"
             v-if="showModal"
             title="This is a modal"
         >
@@ -30,6 +30,7 @@
 // imports
 import { ref } from 'vue';
 import Modal from '@/components/Modal.vue';
+import ModalDark from '@/components/ModalDark.vue';
 
 // modals
 const showDarkModals = ref(false);
