@@ -14,13 +14,26 @@
         </ul>
 
         <textarea v-autofocus></textarea>
+
+        <div>
+            <button
+                :style="{
+                    'background-color':
+                        counter.oddOrEven === 'odd' ? 'pink' : 'yellow'
+                }"
+                @click="counter.increaseCounter(1)"
+            >
+                {{ counter.count }}
+            </button>
+        </div>
     </div>
 </template>
 
 <script setup>
 // imports
 import { ref } from 'vue';
-import { vAutofocus } from '../directives/vAutofocus';
+import { useCounterStore } from '@/stores/counter';
+import { vAutofocus } from '@/directives/vAutofocus';
 
 // mock posts
 const posts = ref([
@@ -37,6 +50,10 @@ const posts = ref([
         title: 'Post 3'
     }
 ]);
+
+// counter
+
+const counter = useCounterStore();
 </script>
 
 <style scoped>
