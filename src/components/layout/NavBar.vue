@@ -16,6 +16,7 @@
                     aria-label="menu"
                     aria-expanded="false"
                     data-target="navbarBasicExample"
+                    @click.prevent="showMobileNav = !showMobileNav"
                 >
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -25,6 +26,7 @@
 
             <div
                 id="navbarBasicExample"
+                :class="{ 'is-active': showMobileNav }"
                 class="navbar-menu"
             >
                 <div class="navbar-end">
@@ -32,6 +34,7 @@
                         to="/"
                         class="navbar-item"
                         active-class="is-active"
+                        @click="showMobileNav = false"
                     >
                         Notes
                     </RouterLink>
@@ -39,6 +42,7 @@
                         to="/stats"
                         class="navbar-item"
                         active-class="is-active"
+                        @click="showMobileNav = false"
                     >
                         Stats
                     </RouterLink>
@@ -47,3 +51,19 @@
         </div>
     </nav>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+
+const showMobileNav = ref(false);
+</script>
+
+<style>
+@media (max-width: 1032px) {
+    .navbar-menu {
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
+}
+</style>
