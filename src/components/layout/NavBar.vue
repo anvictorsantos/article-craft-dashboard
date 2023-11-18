@@ -11,11 +11,13 @@
                 </div>
 
                 <a
-                    role="button"
-                    class="navbar-burger"
-                    aria-label="menu"
+                    ref="navbarBurgerRef"
                     aria-expanded="false"
+                    aria-label="menu"
+                    class="navbar-burger"
+                    :class="{ 'is-active': showMobileNav }"
                     data-target="navbarBasicExample"
+                    role="button"
                     @click.prevent="showMobileNav = !showMobileNav"
                 >
                     <span aria-hidden="true"></span>
@@ -26,6 +28,7 @@
 
             <div
                 id="navbarBasicExample"
+                ref="navbarMenuRef"
                 :class="{ 'is-active': showMobileNav }"
                 class="navbar-menu"
             >
@@ -54,8 +57,22 @@
 
 <script setup>
 import { ref } from 'vue';
+import { onClickOutside } from '@vueuse/core';
 
 const showMobileNav = ref(false);
+
+const navbarMenuRef = ref(null);
+const navbarBurgerRef = ref(null);
+
+onClickOutside(
+    navbarMenuRef,
+    () => {
+        showMobileNav.value = false;
+    },
+    {
+        ignore: [navbarBurgerRef]
+    }
+);
 </script>
 
 <style>

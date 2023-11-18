@@ -12,9 +12,11 @@
             <div class="control">
                 <textarea
                     ref="textareaRef"
+                    v-autofocus
                     :value="modelValue"
                     class="textarea"
                     :placeholder="placeholder"
+                    maxlength="100"
                     @input="$emit('update:modelValue', $event.target.value)"
                 ></textarea>
             </div>
@@ -30,6 +32,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import { vAutofocus } from '@/directives/vAutofocus';
 
 defineProps({
     modelValue: {
