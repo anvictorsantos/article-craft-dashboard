@@ -1,11 +1,11 @@
 <template>
-    <div class="edit-note">
-        <AddEditNote
-            ref="addEditNoteRef"
-            v-model="noteContent"
+    <div class="edit-article">
+        <AddEditArticle
+            ref="addEditArticleRef"
+            v-model="articleContent"
             bg-color="link"
-            placeholder="Edit note"
-            label="Edit Note"
+            placeholder="Edit article"
+            label="Edit Article"
         >
             <template #buttons>
                 <button
@@ -16,33 +16,33 @@
                 </button>
                 <button
                     class="button is-link has-background-link"
-                    :disabled="!noteContent"
+                    :disabled="!articleContent"
                     @click="handleSaveClicked"
                 >
-                    Save Note
+                    Save Article
                 </button>
             </template>
-        </AddEditNote>
+        </AddEditArticle>
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import AddEditNote from '@/components/notes/AddEditNote.vue';
-import { useStoreNotes } from '@/stores/storeNotes';
+import AddEditArticle from '@/components/articles/AddEditArticle.vue';
+import { useStoreArticles } from '@/stores/storeArticles';
 
 const route = useRoute();
 const router = useRouter();
 
-const storeNotes = useStoreNotes();
+const storeArticles = useStoreArticles();
 
-const noteContent = ref('');
+const articleContent = ref('');
 
-noteContent.value = storeNotes.getNoteContent(route.params.id);
+articleContent.value = storeArticles.getArticleContent(route.params.id);
 
 const handleSaveClicked = () => {
-    storeNotes.updateNote(route.params.id, noteContent.value);
+    storeArticles.updateArticle(route.params.id, articleContent.value);
     router.push('/');
 };
 </script>

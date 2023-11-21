@@ -39,7 +39,7 @@
                         active-class="is-active"
                         @click="showMobileNav = false"
                     >
-                        Notes
+                        Articles
                     </RouterLink>
                     <RouterLink
                         to="/stats"

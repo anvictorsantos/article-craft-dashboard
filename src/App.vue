@@ -8,6 +8,14 @@
 
 <script setup>
 import NavBar from '@/components/layout/NavBar.vue';
+import { useStoreArticles } from '@/stores/storeArticles';
+import { onMounted } from 'vue';
+
+const storeArticles = useStoreArticles();
+
+onMounted(() => {
+    storeArticles.getArticles();
+});
 </script>
 
 <style>

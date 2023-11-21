@@ -12,12 +12,12 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Number of Notes</td>
-                    <td>{{ storeNotes.totalNotesCount }}</td>
+                    <td>Number of Articles</td>
+                    <td>{{ storeArticles.totalArticlesCount }}</td>
                 </tr>
                 <tr>
                     <td>Number of Characters (off all notes)</td>
-                    <td>{{ storeNotes.totalCharactersCount }}</td>
+                    <td>{{ storeArticles.totalCharactersCount }}</td>
                 </tr>
             </tbody>
         </table>
@@ -33,11 +33,11 @@
 
 <script setup>
 import { ref } from 'vue';
-import { useStoreNotes } from '@/stores/storeNotes';
+import { useStoreArticles } from '@/stores/storeArticles';
 import { vAutofocus } from '@/directives/vAutofocus';
 import { useWatchCharacters } from '@/use/useWatchCharacters';
 
-const storeNotes = useStoreNotes();
+const storeArticles = useStoreArticles();
 
 const loveArticles = ref('');
 

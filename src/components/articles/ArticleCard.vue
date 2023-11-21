@@ -2,7 +2,7 @@
     <div class="card mb-4">
         <div class="card-content">
             <div class="content">
-                {{ note.content }}
+                {{ article.content }}
                 <div class="has-text-right has-text-grey-light mt-2">
                     <small>{{ characterLength }}</small>
                 </div>
@@ -10,7 +10,7 @@
         </div>
         <footer class="card-footer">
             <RouterLink
-                :to="`/editNote/${note.id}`"
+                :to="`/editArticle/${article.id}`"
                 href="#"
                 class="card-footer-item"
                 >Edit</RouterLink
@@ -18,41 +18,41 @@
             <a
                 href="#"
                 class="card-footer-item"
-                @click.prevent="modals.deleteNote = true"
+                @click.prevent="modals.deleteArticle = true"
                 >Delete</a
             >
         </footer>
-        <ModalDeleteNote
-            v-if="modals.deleteNote"
-            v-model="modals.deleteNote"
-            :note-id="note.id"
+        <ModalDeleteArticle
+            v-if="modals.deleteArticle"
+            v-model="modals.deleteArticle"
+            :article-id="article.id"
         />
     </div>
 </template>
 
 <script setup>
 import { computed, reactive } from 'vue';
-import ModalDeleteNote from '@/components/notes/ModalDeleteNote.vue';
-import { useStoreNotes } from '@/stores/storeNotes';
+import ModalDeleteArticle from '@/components/articles/ModalDeleteArticle.vue';
+import { useStoreArticles } from '@/stores/storeArticles';
 import { RouterLink } from 'vue-router';
 
 const props = defineProps({
-    note: {
+    article: {
         type: Object,
         required: true
     }
 });
 
-useStoreNotes();
+useStoreArticles();
 
 const characterLength = computed(() => {
-    let length = props.note.content.length;
+    let length = props.article.content.length;
     let description = length > 1 ? 'characters' : 'character';
 
     return `${length} ${description}`;
 });
 
 const modals = reactive({
-    deleteNote: false
+    deleteArticle: false
 });
 </script>

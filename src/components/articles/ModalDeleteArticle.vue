@@ -14,7 +14,7 @@
                 ></button>
             </header>
             <section class="modal-card-body">
-                Are you sure you want to delete this note?
+                Are you sure you want to delete this article?
             </section>
             <footer
                 ref="modalDeleteRef"
@@ -28,7 +28,7 @@
                 </button>
                 <button
                     class="button is-danger"
-                    @click="storeNotes.deleteNote(noteId)"
+                    @click="storeArticles.deleteArticle(articleId)"
                 >
                     Delete
                 </button>
@@ -40,14 +40,14 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
-import { useStoreNotes } from '@/stores/storeNotes';
+import { useStoreArticles } from '@/stores/storeArticles';
 
 defineProps({
     modelValue: {
         type: Boolean,
         default: false
     },
-    noteId: {
+    articleId: {
         type: String,
         required: true
     }
@@ -55,7 +55,7 @@ defineProps({
 
 const emit = defineEmits(['update:modelValue']);
 
-const storeNotes = useStoreNotes();
+const storeArticles = useStoreArticles();
 
 const closeModal = () => {
     emit('update:modelValue', false);
