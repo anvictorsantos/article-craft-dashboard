@@ -7,9 +7,10 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
+
 import NavBar from '@/components/layout/NavBar.vue';
 import { useStoreArticles } from '@/stores/storeArticles';
-import { onMounted } from 'vue';
 
 const storeArticles = useStoreArticles();
 

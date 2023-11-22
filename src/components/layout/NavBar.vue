@@ -56,8 +56,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
+import { ref } from 'vue';
 
 const showMobileNav = ref(false);
 

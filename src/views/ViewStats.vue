@@ -33,8 +33,9 @@
 
 <script setup>
 import { ref } from 'vue';
-import { useStoreArticles } from '@/stores/storeArticles';
+
 import { vAutofocus } from '@/directives/vAutofocus';
+import { useStoreArticles } from '@/stores/storeArticles';
 import { useWatchCharacters } from '@/use/useWatchCharacters';
 
 const storeArticles = useStoreArticles();

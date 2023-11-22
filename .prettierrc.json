@@ -31,6 +31,6 @@
     "useTabs": false,
     "vueIndentScriptAndStyle": false,
     "withNodeModules": false,
-    "plugins": ["prettier-plugin-tailwindcss"],
+    "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-organize-imports"],
     "pluginSearchDirs": false
 }

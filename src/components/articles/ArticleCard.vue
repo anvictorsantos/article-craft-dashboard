@@ -32,9 +32,10 @@
 
 <script setup>
 import { computed, reactive } from 'vue';
+import { RouterLink } from 'vue-router';
+
 import ModalDeleteArticle from '@/components/articles/ModalDeleteArticle.vue';
 import { useStoreArticles } from '@/stores/storeArticles';
-import { RouterLink } from 'vue-router';
 
 const props = defineProps({
     article: {

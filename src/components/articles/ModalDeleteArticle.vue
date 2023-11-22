@@ -38,8 +38,9 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
+import { onMounted, onUnmounted, ref } from 'vue';
+
 import { useStoreArticles } from '@/stores/storeArticles';
 
 defineProps({
