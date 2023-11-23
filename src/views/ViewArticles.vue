@@ -15,11 +15,27 @@
                 </button>
             </template>
         </AddEditArticle>
-        <ArticleCard
-            v-for="article in storeArticles.articles"
-            :key="article.id"
-            :article="article"
+
+        <progress
+            v-if="!storeArticles.articlesLoaded"
+            class="progress is-large is-success"
+            max="100"
         />
+
+        <template v-else>
+            <ArticleCard
+                v-for="article in storeArticles.articles"
+                :key="article.id"
+                :article="article"
+            />
+
+            <div
+                v-if="!storeArticles.articles.length"
+                class="is-size-4 has-text-centered has-text-grey-light is-family-monospace py-6"
+            >
+                No articles here yet...
+            </div>
+        </template>
     </div>
 </template>
 

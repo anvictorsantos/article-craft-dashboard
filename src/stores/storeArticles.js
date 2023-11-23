@@ -1,42 +1,61 @@
-import { defineStore, acceptHMRUpdate } from 'pinia';
-import { collection, onSnapshot } from 'firebase/firestore';
+import {
+    addDoc,
+    collection,
+    deleteDoc,
+    doc,
+    onSnapshot,
+    orderBy,
+    query,
+    updateDoc
+} from 'firebase/firestore';
+import { acceptHMRUpdate, defineStore } from 'pinia';
+
 import { db } from '@/js/firebase';
+
+const articlesCollectionRef = collection(db, 'articles');
+const articlesColletionQuery = query(
+    articlesCollectionRef,
+    orderBy('date', 'desc')
+);
 
 export const useStoreArticles = defineStore('storeArticles', {
     state: () => ({
-        articles: []
+        articles: [],
+        articlesLoaded: false
     }),
     actions: {
         async getArticles() {
-            onSnapshot(collection(db, 'articles'), (querySnapshot) => {
+            this.articlesLoaded = false;
+            onSnapshot(articlesColletionQuery, (querySnapshot) => {
                 let articles = [];
                 querySnapshot.forEach((doc) => {
                     let article = {
                         id: doc.id,
-                        content: doc.data().content
+                        content: doc.data().content,
+                        date: doc.data().date
                     };
                     articles.push(article);
                 });
                 this.articles = articles;
+                this.articlesLoaded = true;
             });
         },
-        addArticle(newArticleContent) {
+        async addArticle(newArticleContent) {
             let currentDate = new Date().getTime(),
-                id = currentDate.toString();
-            let article = {
-                id,
-                content: newArticleContent
-            };
-            this.articles.unshift(article);
+                date = currentDate.toString();
+
+            await addDoc(articlesCollectionRef, {
+                content: newArticleContent,
+                date: date
+            });
         },
-        deleteArticle(idToDelete) {
-            this.articles = this.articles.filter(
-                (article) => article.id !== idToDelete
-            );
+        async deleteArticle(idToDelete) {
+            await deleteDoc(doc(articlesCollectionRef, idToDelete));
         },
-        updateArticle(id, content) {
-            let index = this.articles.findIndex((article) => article.id === id);
-            this.articles[index].content = content;
+        async updateArticle(id, content) {
+            await updateDoc(doc(articlesCollectionRef, id), {
+                content
+            });
         }
     },
     getters: {

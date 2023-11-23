@@ -3,8 +3,11 @@
         <div class="card-content">
             <div class="content">
                 {{ article.content }}
-                <div class="has-text-right has-text-grey-light mt-2">
-                    <small>{{ characterLength }}</small>
+                <div class="columns is-mobile has-text-grey-light mt-2">
+                    <small class="column">{{ dateFormatted }}</small>
+                    <small class="column has-text-right">{{
+                        characterLength
+                    }}</small>
                 </div>
             </div>
         </div>
@@ -31,6 +34,7 @@
 </template>
 
 <script setup>
+import { useDateFormat } from '@vueuse/core';
 import { computed, reactive } from 'vue';
 import { RouterLink } from 'vue-router';
 
@@ -45,6 +49,11 @@ const props = defineProps({
 });
 
 useStoreArticles();
+
+const dateFormatted = computed(() => {
+    let date = new Date(parseInt(props.article.date));
+    return useDateFormat(date, 'MM-DD-YYYY @ HH:mm').value;
+});
 
 const characterLength = computed(() => {
     let length = props.article.content.length;
