@@ -33,8 +33,12 @@
                 class="navbar-menu"
             >
                 <div class="navbar-start">
-                    <button class="button is-small is-info mt-3 ml-3">
-                        Log out
+                    <button
+                        v-if="storeAuth.user.id"
+                        class="button is-small is-info mt-3 ml-3"
+                        @click="logout"
+                    >
+                        Log out {{ storeAuth.user.email }}
                     </button>
                 </div>
                 <div class="navbar-end">
@@ -61,8 +65,11 @@
 </template>
 
 <script setup>
+import { useStoreAuth } from '@/stores/storeAuth';
 import { onClickOutside } from '@vueuse/core';
 import { ref } from 'vue';
+
+const storeAuth = useStoreAuth();
 
 const showMobileNav = ref(false);
 
@@ -78,6 +85,11 @@ onClickOutside(
         ignore: [navbarBurgerRef]
     }
 );
+
+const logout = () => {
+    showMobileNav.value = false;
+    storeAuth.logoutUser();
+};
 </script>
 
 <style>

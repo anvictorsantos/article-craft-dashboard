@@ -11,20 +11,10 @@ module.exports = {
     parserOptions: {
         ecmaVersion: 'latest'
     },
-    plugins: ['simple-import-sort', 'import'],
     rules: {
         'prettier/prettier': 'error',
         'vue/require-default-prop': 'off',
         'vue/attributes-order': 'error',
-        'vue/no-v-html': 'error',
-        'simple-import-sort/imports': 'error'
-    },
-    settings: {
-        'import/resolver': {
-            alias: {
-                map: [['@', './src']],
-                extensions: ['.vue', '.json', '.js']
-            }
-        }
+        'vue/no-v-html': 'error'
     }
 };

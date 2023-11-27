@@ -10,12 +10,12 @@
 import { onMounted } from 'vue';
 
 import NavBar from '@/components/layout/NavBar.vue';
-import { useStoreArticles } from '@/stores/storeArticles';
+import { useStoreAuth } from '@/stores/storeAuth';
 
-const storeArticles = useStoreArticles();
+const storeAuth = useStoreAuth();
 
 onMounted(() => {
-    storeArticles.getArticles();
+    storeAuth.init();
 });
 </script>
 
