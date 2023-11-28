@@ -11,8 +11,26 @@
     "endOfLine": "lf",
     "htmlWhitespaceSensitivity": "css",
     "ignorePath": ".prettierignore",
+    "importOrder": [
+        "^vue$", 
+        "<TYPES>",
+        "<TYPES>^[.]",
+        "<BUILTIN_MODULES>",
+        "<THIRD_PARTY_MODULES>",
+        "",
+        "^@/component-library/(.*)$", 
+        "",
+        "^@/domain/(.*)$", 
+        "",
+        "^@/primary/(.*)$", 
+        "",
+        "^@/secondary/(.*)$", 
+        "",
+        "^@/utils/(.*)$",
+        "",
+        "^[./]"
+    ],
     "insertPragma": false,
-    "jsxBracketSameLine": false,
     "jsxSingleQuote": false,
     "packageManager": "npm",
     "prettierPath": "",
@@ -30,7 +48,5 @@
     "useEditorConfig": true,
     "useTabs": false,
     "vueIndentScriptAndStyle": false,
-    "withNodeModules": false,
-    "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-organize-imports"],
-    "pluginSearchDirs": false
+    "withNodeModules": false
 }

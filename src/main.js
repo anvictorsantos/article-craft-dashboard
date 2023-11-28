@@ -3,7 +3,7 @@ import { createApp, markRaw } from 'vue';
 
 import router from '@/router';
 
-import App from './App.vue';
+import App from '@/App.vue';
 
 const pinia = createPinia();
 

@@ -7,20 +7,26 @@ import {
 } from 'firebase/auth';
 import { acceptHMRUpdate, defineStore } from 'pinia';
 
+import { useStoreArticles } from '@/stores/storeArticles';
+
 export const useStoreAuth = defineStore('storeAuth', {
     state: () => ({
         user: {}
     }),
     actions: {
         init() {
+            const storeArticles = useStoreArticles();
+
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     this.user.id = user.uid;
                     this.user.email = user.email;
                     this.router.push('/');
+                    storeArticles.init();
                 } else {
                     this.user = {};
                     this.router.replace('/auth');
+                    storeArticles.clearArticles();
                 }
             });
         },

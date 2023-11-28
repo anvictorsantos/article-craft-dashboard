@@ -8,6 +8,7 @@ module.exports = {
         'eslint:recommended',
         '@vue/eslint-config-prettier'
     ],
+    plugins: ['prettier'],
     parserOptions: {
         ecmaVersion: 'latest'
     },
@@ -15,6 +16,12 @@ module.exports = {
         'prettier/prettier': 'error',
         'vue/require-default-prop': 'off',
         'vue/attributes-order': 'error',
-        'vue/no-v-html': 'error'
+        'vue/no-v-html': 'error',
+        'no-restricted-imports': [
+            'error',
+            {
+                patterns: ['.*']
+            }
+        ]
     }
 };

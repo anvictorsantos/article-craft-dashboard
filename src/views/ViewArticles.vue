@@ -40,9 +40,9 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
-
+import { ref } from 'vue';
 import AddEditArticle from '@/components/articles/AddEditArticle.vue';
+
 import ArticleCard from '@/components/articles/ArticleCard.vue';
 import { useStoreArticles } from '@/stores/storeArticles';
 import { useWatchCharacters } from '@/use/useWatchCharacters';
@@ -59,8 +59,4 @@ const addArticle = () => {
 };
 
 useWatchCharacters(newArticle);
-
-onMounted(() => {
-    storeArticles.getArticles();
-});
 </script>
