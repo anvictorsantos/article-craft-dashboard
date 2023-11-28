@@ -58,6 +58,9 @@ export const useStoreArticles = defineStore('storeArticles', {
                     });
                     this.articles = articles;
                     this.articlesLoaded = true;
+                },
+                (error) => {
+                    console.log('error.message', error.message);
                 }
             );
         },
