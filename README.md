@@ -2,33 +2,34 @@
 
 ## Overview
 
-This project is a full-stack CRUD (Create, Read, Update, Delete) application for managing articles. It utilizes modern web development technologies and tools including Vue 3, Vite, Pinia, Tailwind CSS, Composition API, Prettier, ESLint, JavaScript, and Firebase.
+This project is a full-stack CRUD (Create, Read, Update, Delete) application for managing articles. It utilizes modern web development technologies and tools including Vue 3, Vite, Pinia, Bulma CSS, Composition API, Prettier, ESLint, JavaScript, and Firebase.
 
 ## Structure Overview
 
 The project structure is organized as follows:
 
-- **`/src`**: The main source code directory.
-  - **`/assets`**: Contains static assets like images, fonts, and other resources.
-  - **`/components`**: Houses Vue components used in the application.
-  - **`/composables`**: Contains Composition API composables for modular logic.
-  - **`/layouts`**: Defines layout components for structuring pages.
-  - **`/pages`**: Contains Vue views and pages for routing.
-  - **`/plugins`**: Holds Vue plugins and integrations.
-  - **`/services`**: Includes services for interacting with Firebase or external APIs.
-  - **`/store`**: The Pinia store module for state management.
-  - **`/styles`**: Stores global CSS styles, including Tailwind CSS configurations.
-  - **`/utils`**: Houses utility functions and helper scripts.
-  - **`App.vue`**: The root Vue component.
-  - **`main.js`**: The entry point for the application.
+-   **`/src`**: The main source code directory.
 
-- **`/public`**: Contains public assets and the `index.html` file.
-- **`/tests`**: Holds unit and integration tests.
-- **`/vite.config.js`**: Configuration for Vite build tool.
-- **`.eslintrc.js`**: ESLint configuration for code linting.
-- **`.prettierrc.js`**: Prettier configuration for code formatting.
-- **`firebaseConfig.js`**: Firebase configuration file (if applicable).
-- **`README.md`**: Project documentation.
+    -   **`/assets`**: Contains static assets like images, fonts, and other resources.
+    -   **`/components`**: Houses Vue components used in the application.
+    -   **`/composables`**: Contains Composition API composables for modular logic.
+    -   **`/layouts`**: Defines layout components for structuring pages.
+    -   **`/pages`**: Contains Vue views and pages for routing.
+    -   **`/plugins`**: Holds Vue plugins and integrations.
+    -   **`/services`**: Includes services for interacting with Firebase or external APIs.
+    -   **`/store`**: The Pinia store module for state management.
+    -   **`/styles`**: Stores global CSS styles, including Bulma CSS configurations.
+    -   **`/utils`**: Houses utility functions and helper scripts.
+    -   **`App.vue`**: The root Vue component.
+    -   **`main.js`**: The entry point for the application.
+
+-   **`/public`**: Contains public assets and the `index.html` file.
+-   **`/tests`**: Holds unit and integration tests.
+-   **`/vite.config.js`**: Configuration for Vite build tool.
+-   **`.eslintrc.js`**: ESLint configuration for code linting.
+-   **`.prettierrc.js`**: Prettier configuration for code formatting.
+-   **`firebaseConfig.js`**: Firebase configuration file (if applicable).
+-   **`README.md`**: Project documentation.
 
 ## Usage
 
@@ -39,43 +40,46 @@ To run the Monster Slayer game, follow these steps:
 3. Navigate to the project directory in your terminal.
 4. Run the following command to install dependencies:
 
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
 ### Development
 
-- Start the development server:
-  ```
-  npm run serve
-  # OR
-  yarn serve
-  ```
-- Open your browser and visit http://localhost:5173 to see the application in action.
+-   Start the development server:
+    ```
+    npm run serve
+    # OR
+    yarn serve
+    ```
+-   Open your browser and visit http://localhost:5173 to see the application in action.
 
 ## Technologies Used
-- **Frontend**:
-  - Vue 3
-  - JavaScript
-  - Vite
-  - Pinia (State Management)
-  - Tailwind CSS (Styling)
-  - Composition API
-  - Prettier (Code Formatting)
-  - ESLint (Code Linting)
 
-- **Backend**:
-  - Firebase (Database and Authentication)
+-   **Frontend**:
+
+    -   Vue 3
+    -   JavaScript
+    -   Vite
+    -   Pinia (State Management)
+    -   Bulma CSS (Styling)
+    -   Composition API
+    -   Prettier (Code Formatting)
+    -   ESLint (Code Linting)
+
+-   **Backend**:
+    -   Firebase (Database and Authentication)
 
 ## Features
-- Create, Read, Update, and Delete articles.
-- Real-time data synchronization with Firebase.
-- State management with Pinia.
-- Modern UI design with Tailwind CSS.
-- Code formatting with Prettier.
-- Code quality assurance with ESLint.
+
+-   Create, Read, Update, and Delete articles.
+-   Real-time data synchronization with Firebase.
+-   State management with Pinia.
+-   Modern UI design with Bulma CSS.
+-   Code formatting with Prettier.
+-   Code quality assurance with ESLint.
 
 ### Contributing
 
@@ -90,4 +94,3 @@ This project is licensed under the MIT License - see the [LICENSE](https://chat.
 This project is designed to demonstrate proficiency in building a full-stack web application with Vue 3 and Firebase, emphasizing clean code and modern development practices.
 
 Happy coding!
-
